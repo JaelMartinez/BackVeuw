@@ -17,7 +17,7 @@ MyBackend proporciona la funcionalidad de backend para la aplicación Veuw, inclu
 
 - **.NET Core 8**
 - **Entity Framework Core**
-- - **T_SQL y C#_**
+- **T-SQL y C#**
 - **SQL Server**
 - **JWT (JSON Web Tokens)**
 - **Visual Studio 2022**
@@ -39,15 +39,25 @@ MyBackend proporciona la funcionalidad de backend para la aplicación Veuw, inclu
     ```sh
     cd mybackend
     ```
-3. Configura la cadena de conexión a tu base de datos SQL Server en el archivo dependiendo de como utilices tu conexion en sql server managament studio `appsettings.json`:
-    ```env
-    SQL_SERVER=your_server
-    SQL_DATABASE=your_database
-    SQL_USER=your_username
-    SQL_PASSWORD=your_password
-    JWT_KEY=your_jwt_key
-    JWT_ISSUER=your_issuer
-    JWT_AUDIENCE=your_audience
+3. Configura la cadena de conexión a tu base de datos SQL Server en el archivo `appsettings.json`. Crea un archivo llamado `appsettings.json.example` en la raíz de tu proyecto con el siguiente contenido (sin valores sensibles):
+    ```json
+    {
+      "ConnectionStrings": {
+          "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USER;Password=YOUR_PASSWORD;TrustServerCertificate=True;"
+      },
+      "Jwt": {
+          "Key": "YOUR_JWT_KEY",
+          "Issuer": "YOUR_JWT_ISSUER",
+          "Audience": "YOUR_JWT_AUDIENCE"
+      },
+      "Logging": {
+          "LogLevel": {
+              "Default": "Information",
+              "Microsoft.AspNetCore": "Warning"
+          }
+      },
+      "AllowedHosts": "*"
+    }
     ```
 4. Aplica las migraciones para crear la base de datos:
     ```sh
@@ -105,7 +115,6 @@ MyBackend proporciona la funcionalidad de backend para la aplicación Veuw, inclu
 | Ya no se guardan datos de manera local. |  |  |
 | Se implementó el backend utilizando C# y .NET para evitar el retrabajo. |  |  |
 
-
 ## Diagrama de Entidad-Relación de la Base de Datos
 
 (Diagrama de ER aquí)
@@ -113,7 +122,7 @@ MyBackend proporciona la funcionalidad de backend para la aplicación Veuw, inclu
 ## Problemas Conocidos
 
 - La autenticación JWT puede requerir ajustes adicionales para asegurar la máxima seguridad.
-- La pagina puede mejorar en rendimiento.
+- La página puede mejorar en rendimiento.
 
 ## Retrospectiva
 
