@@ -29,3 +29,4 @@ bld/
 *.log
 # Ignore .env file
 .env
+appsettings.json

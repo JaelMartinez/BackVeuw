@@ -39,7 +39,7 @@ MyBackend proporciona la funcionalidad de backend para la aplicación Veuw, inclu
     ```sh
     cd mybackend
     ```
-3. Configura la cadena de conexión a tu base de datos SQL Server en el archivo `appsettings.json`:
+3. Configura la cadena de conexión a tu base de datos SQL Server en el archivo dependiendo de como utilices tu conexion en sql server managament studio `appsettings.json`:
     ```env
     SQL_SERVER=your_server
     SQL_DATABASE=your_database

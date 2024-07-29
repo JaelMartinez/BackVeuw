@@ -10,10 +10,16 @@ using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Cargar las variables de entorno
-Env.Load();
+// Load environment variables from .env file
+DotNetEnv.Env.Load();
 
-builder.Configuration.AddEnvironmentVariables();
+// Log environment variables for debugging
+Console.WriteLine("Loaded Environment Variables:");
+Console.WriteLine($"SQL_SERVER: {Environment.GetEnvironmentVariable("SQL_SERVER")}");
+Console.WriteLine($"SQL_DATABASE: {Environment.GetEnvironmentVariable("SQL_DATABASE")}");
+Console.WriteLine($"JWT_KEY: {Environment.GetEnvironmentVariable("JWT_KEY")}");
+Console.WriteLine($"JWT_ISSUER: {Environment.GetEnvironmentVariable("JWT_ISSUER")}");
+Console.WriteLine($"JWT_AUDIENCE: {Environment.GetEnvironmentVariable("JWT_AUDIENCE")}");
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
