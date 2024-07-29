@@ -27,6 +27,7 @@ bld/
 
 # Other
 *.log
-# Ignore .env file
-echo "appsettings.json" >> .gitignore
-echo ".env" >> .gitignore
+
+# Ignore appsettings.json and .env files
+appsettings.json
+.env
