@@ -10,6 +10,8 @@ using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configura el servidor para que escuche en el puerto 8080
+builder.WebHost.UseUrls("http://*:8080");
 // Load environment variables from .env file
 DotNetEnv.Env.Load();
 
@@ -65,7 +67,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 // Use CORS
 app.UseCors("AllowAllOrigins");
@@ -178,5 +180,6 @@ app.MapDelete("/api/favorites/{id}", async (ApplicationDbContext db, int id) =>
     await db.SaveChangesAsync();
     return Results.NoContent();
 });
+
 
 app.Run();

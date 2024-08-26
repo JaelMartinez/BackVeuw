@@ -118,7 +118,8 @@ MyBackend proporciona la funcionalidad de backend para la aplicación Veuw, inclu
 ## Diagrama de Entidad-Relación de la Base de Datos
 
 ![Diagrama de ER](assets/images/diagrama_ER.png)
-
+## En setup.sql se puede ver las querys que utilize para la creacion de mis tablas.
+- Se creo una base de datos en sql server y se lleno con estos datos.
 ## Problemas Conocidos
 
 - La autenticación JWT puede requerir ajustes adicionales para asegurar la máxima seguridad.
